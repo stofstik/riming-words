@@ -18,9 +18,12 @@
     "url": "https://github.com/stofstik/riming-words/issues"
   },
   "homepage": "https://github.com/stofstik/riming-words#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.11.1",
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   }
 }
