@@ -2,8 +2,8 @@ console.log('oh hai!')
 
 const words = [ 'aan', 'uit', 'gaan', 'fruit', 'banaan', 'buskruit', 'verbaast']
 
-const vowels = [ a, e, i, o, u, y ]
-const consonants = [ b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, z ]
+const vowels = [ 'a', 'e', 'i', 'o', 'u', 'y' ]
+const consonants = [ 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' ]
 
 /*
  * The last part of the word will be the part conataining the last vowel(s)
