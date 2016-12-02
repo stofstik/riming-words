@@ -8,9 +8,9 @@ const vowels = [ 'a', 'e', 'i', 'o', 'u', 'y' ]
 const consonants = [ 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' ]
 
 function randomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min
 }
 
 function hasVowels(word) {
@@ -23,9 +23,9 @@ function recursive(payload) {
   if(word1.charAt(word1.length - 1) === word2.charAt(word2.length - 1)) {
     // Words are the same check next char
     return recursive({
-        word1: word1.substring(0, word1.length - 1),
-        word2: word2.substring(0, word2.length - 1),
-        rimeWord: word1.charAt(word1.length - 1) + rimeWord,
+      word1: word1.substring(0, word1.length - 1),
+      word2: word2.substring(0, word2.length - 1),
+      rimeWord: word1.charAt(word1.length - 1) + rimeWord,
     })
   }
   if(hasVowels(rimeWord) && rimeWord.length > 1) {
@@ -35,8 +35,8 @@ function recursive(payload) {
   return false
 }
 
-word1 = 'banaan'
-word2 = 'gaan'
+let word1 = 'banaan'
+let word2 = 'gaan'
 console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
 
 word1 = 'fantasie'
