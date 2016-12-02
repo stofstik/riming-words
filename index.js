@@ -13,52 +13,51 @@ function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function indexOfFirstVowel(word) {
-  return word.indexOf(word.split('').filter( (c) => vowels.indexOf(c) > -1 )[0])
-}
-
-function areRiming(word1, word2) {
-  // Words are the same
-  if(word1 === word2) return true
-  // Words are the same after first vowel
-  if(word1.substring(indexOfFirstVowel(word1), word1.length) ===
-     word2.substring(indexOfFirstVowel(word2), word2.length)) return true
-
-  return false
+function hasVowels(word) {
+  return vowels.filter((v) => word.indexOf(v) > -1 ).length > 0
 }
 
 function recursive(payload) {
-  const { word1, word2 } = payload
-  console.log(payload)
+  const { word1, word2, rimeWord = '' } = payload
+  if(word1 === word2) return true
   if(word1.charAt(word1.length - 1) === word2.charAt(word2.length - 1)) {
+    // Words are the same check next char
     return recursive({
-        word1: word1.split('').splice(0, word1.length - 1).join(''),
-        word2: word2.split('').splice(0, word2.length - 1).join('')
+        word1: word1.substring(0, word1.length - 1),
+        word2: word2.substring(0, word2.length - 1),
+        rimeWord: word1.charAt(word1.length - 1) + rimeWord,
     })
   }
+  if(hasVowels(rimeWord)) return true
+  return false
 }
 
-recursive( { word1: words[11], word2: words[12] } )
+word1 = 'banaan'
+word2 = 'gaan'
+console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+
+word1 = 'soepkommen'
+word2 = 'komkommer'
+console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+
+word1 = 'verandering'
+word2 = 'behandeling'
+console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+
+word1 = 'klosje'
+word2 = 'bosje'
+console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+
+
 /*
+ * function run() {
+ *   setTimeout(() => {
+ *     let word1 = 'bids' //words[randomInt(0, words.length)]
+ *     let word2 = 'ids' //words[randomInt(0, words.length)]
+ *     console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
+ *     return run ()
+ *   }, 500)
+ * }
  *
- * let word1 = words[0]
- * let word2 = words[1]
- * console.log('%s en %s %s', word1, word2, areRiming(word1, word2))
- *
- * word1 = words[2]
- * word2 = words[3]
- * console.log('%s en %s %s', word1, word2, areRiming(word1, word2))
- *
- * word1 = words[0]
- * word2 = words[4]
- * console.log('%s en %s %s', word1, word2, areRiming(word1, word2))
- *
- * word1 = words[11]
- * word2 = words[12]
- * console.log('%s en %s %s', word1, word2, areRiming(word1, word2))
- *
- *
- * word1 = words[13]
- * word2 = words[14]
- * console.log('%s en %s %s', word1, word2, areRiming(word1, word2))
+ * run()
  */
