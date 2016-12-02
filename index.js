@@ -28,25 +28,32 @@ function recursive(payload) {
         rimeWord: word1.charAt(word1.length - 1) + rimeWord,
     })
   }
-  if(hasVowels(rimeWord)) return true
+  if(hasVowels(rimeWord) && rimeWord.length > 1) {
+    console.log(rimeWord)
+    return true
+  }
   return false
 }
 
 word1 = 'banaan'
 word2 = 'gaan'
-console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
 
+word1 = 'fantasie'
+word2 = 'niet'
+
+console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
 word1 = 'soepkommen'
 word2 = 'komkommer'
-console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
 
 word1 = 'verandering'
 word2 = 'behandeling'
-console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
 
 word1 = 'klosje'
 word2 = 'bosje'
-console.log('%s en %s %s', word1, word2, recursive(word1, word2))
+console.log('%s en %s %s', word1, word2, recursive({ word1, word2 }))
 
 
 /*
